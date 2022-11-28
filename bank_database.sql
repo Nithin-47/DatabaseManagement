@@ -39,6 +39,16 @@ foreign key(branch_name) references branch(branch_name)
 
 );
 
+
+create table borrower(
+customer_name varchar(40),
+loan_number int,
+primary key(customer_name,loan_number)
+);
+
+
+
+
 insert into branch
 values('HDFC_Chamrajpet','Bengaluru',50000),('HDFC_AnandRaoCircle','Bengaluru',10000),('HDFC_ShivajiRoad','Mumbai',20000),('HDFC_ParliamentRoad','Delhi',10000),('HDFC_Jantarmantar','Delhi',20000);
 
@@ -53,6 +63,10 @@ values('Avinash',1),('Dinesh',2),('Nikil',4),('Ravi',5),('Avinash',8),('Nikil',9
 
 insert into loan
 values('HDFC_Chamrajpet',1,1000),('HDFC_AnandRaoCircle',2,2000),('HDFC_ShivajiRoad',3,3000),('HDFC_ParliamentRoad',4,4000),('HDFC_Jantarmantar',5,5000);
+
+
+insert into borrower
+values('Avinash',1),('Dinesh',2),('Mohan',3),('Nikil',4),('Ravi',5);
 
 
 
