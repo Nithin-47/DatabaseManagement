@@ -69,4 +69,5 @@ insert into borrower
 values('Avinash',1),('Dinesh',2),('Mohan',3),('Nikil',4),('Ravi',5);
 
 
+select customer_name from depositer where acc_no in (select acc_no from bank_account b where b.branch_name=all(select branch_name from branch where branch_name in (select branch_name from branch where branch_city="Delhi" )));
 
