@@ -97,25 +97,13 @@ select * from assigned_to;
 
 
 
-
-
-
--- select E.ename,(count(*)) from employee E where E.emp_no in (select P.mgr_no from employee P where P.mgr_no=E.emp_no) group by E.ename; 
-
--- this is correct
-select E.ename from employee E where E.emp_no in (select P.mgr_no from employee P where sal>(select avg(sal) from employee G where G.mgr_no=E.emp_no));
-
-
--- select E.ename from employee E where E.emp_no in (select P.mgr_no from employee P where 1=(select count(sal) from employee G where G.sal
-
 select m.ename,count(*) from employee e,employee m where e.mgr_no=m.emp_no group by m.ename having count(*)=(select max(mycount) from (select count(*) mycount from employee group by mgr_no) a);
 
+select E.ename from employee E where E.emp_no in (select P.mgr_no from employee P where sal>(select avg(sal) from employee G where G.mgr_no=E.emp_no));
 
+select G.ename,G.dept_no from employee E,employee M,employee G where E.mgr_no=M.emp_no and M.mgr_no=G.emp_no group by G.dept_no;
 
+select * from employee E,incentives I where E.emp_no=I.emp_no and 2=(select count(*) from incentives J where I.incentive_amt<=J.incentive_amt ) and incentive_date like '2019-02%';
 
 select E.ename from employee E,employee M where E.mgr_no=M.emp_no and M.dept_no=E.dept_no;
-
-
-select E.emp_no,E.ename,E.dept_no from employee E,incentives I where E.emp_no=I.emp_no and incentive_date like '2019-02%';
-
 
