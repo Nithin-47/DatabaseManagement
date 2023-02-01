@@ -1,0 +1,17 @@
+ mongosh "mongodb+srv://cluster0.uwlzr07.mongodb.net/lab9" --apiVersion 1 --username saikrishna7783
+ show dbs
+ show dbs
+ db.createCollection("Student")
+ show collections
+ db.Student.insert({Roll_no : 1, Age : 21, Cont : 9876, email : "antara.de9@gmail.com"})
+ db.Student.insert({Roll_no : 2, Age : 22, Cont : 9976, email : "anushka.de9@gmail.com"})
+ db.Student.insert({Roll_no : 3, Age : 21, Cont : 5576, email : "anubhav.de9@gmail.com"})
+ db.Student.insert({Roll_no : 4, Age : 20, Cont : 4476, email : "pani.de9@gmail.com"})
+ db.Student.insert({Roll_no : 10, Age : 23, Cont : 2276, email : "rekha.de9@gmail.com"})
+ db.Student.find()
+ db.Student.updateOne({Roll_no : 10},{$set:{'email' : 'hey@mail'}})
+ db.Student.insert({Roll_no : 11, Age : 22, Name : 'ABC', Cont : 3376, email : "hello.de9@gmail.com"})
+ db.Student.updateOne({Roll_no : 11},{$set:{Name : 'Hello'}})
+ mongoexport mongodb+srv://saikrishna7783:icreated1here@cluster0.uwlzr07.mongodb.net/lab9 --collection=Student --out a.json
+ 
+ mongoimport mongodb+srv://saikrishna7783:icreated1here@cluster0.uwlzr07.mongodb.net/lab9 --collection=mystudent --type json --file a.json
